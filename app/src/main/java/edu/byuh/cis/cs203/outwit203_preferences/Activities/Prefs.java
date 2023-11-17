@@ -121,10 +121,13 @@ public class Prefs extends AppCompatActivity {
         String tmp = PreferenceManager.getDefaultSharedPreferences(c).getString(CHIP_LAYOUT_PREFS_KEY, "1");
         return Integer.parseInt(tmp);
     }
-
+    /**
+     * Helper "façade" method to simplify access to Android's obtuse Preferences API
+     * @param c a context object, typically the main activity
+     * @return ClassicTheme, DarkTheme, LightTheme, or SpecialTheme
+     */
     public static Theme getTheme(Context c){
         String tmp = PreferenceManager.getDefaultSharedPreferences(c).getString(THEME_LAYOUT_PREFS_KEY, ""+CLASSIC_THEME);
-//        Log.d("ThemeDebug", "Retrieved theme: " + tmp);
         return switch (tmp){
             case ""+DARK_THEME -> new DarkTheme();
             case ""+LIGHT_THEME -> new LightTheme();
@@ -208,7 +211,6 @@ public class Prefs extends AppCompatActivity {
             theme.setTitle("Select Theme");
             theme.setSummary("What theme do you want to use?");
             entries = new String[]{"Classic", "Dark", "Light", "Special"};
-//            values = new String[]{"Classic", "Dark", "Light", "Special"};
             values = new String[]{""+CLASSIC_THEME, ""+DARK_THEME, ""+LIGHT_THEME, ""+SPECIAL_THEME};
             theme.setEntries(entries);
             theme.setEntryValues(values);

@@ -56,13 +56,7 @@ public class Chip {
         theme = Prefs.getTheme(c);
         context = c;
 
-//        // Calculate the diameter for the circle
-//        float diameter = currentLocation.width() * 0.8f;
-//
-//        // Calculate the top left corner position to center the bitmap like the circle
-//        float x = currentLocation.centerX() - (diameter / 2);
-//        float y = currentLocation.centerY() - (diameter / 2);
-
+        //Load pictures using Bitmap
         darkPic = BitmapFactory.decodeResource(context.getResources(), theme.getDarkPictureID());
         lightPic = BitmapFactory.decodeResource(context.getResources(), theme.getLightPictureID());
         darkPower = BitmapFactory.decodeResource(context.getResources(), theme.getDarkPowerID());
@@ -127,9 +121,12 @@ public class Chip {
     }
 
     /**
-     * Draw the chip on the screen
-     * @param c the Canvas object
-     * @param blackLine a Paint object, passed in for convenience
+     * Draws the chip on the screen.
+     * This method handles the rendering of chips based on their current state, color, and power status.
+     * It uses different rendering styles depending on the availability of theme elements.
+     *
+     * @param c the Canvas object on which the chip is drawn.
+     * @param blackLine a Paint object used for outlining the chip. It is passed in for convenience.
      */
     public void draw(Canvas c, Paint blackLine) {
 
