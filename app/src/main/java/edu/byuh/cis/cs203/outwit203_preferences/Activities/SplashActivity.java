@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
+import java.util.Locale;
+
 import edu.byuh.cis.cs203.outwit203_preferences.R;
 
 public class SplashActivity extends Activity {
@@ -22,7 +24,21 @@ public class SplashActivity extends Activity {
         super.onCreate(b);
         iv = new ImageView(this);
         iv.setScaleType(ImageView.ScaleType.FIT_XY);
-        iv.setImageResource(R.drawable.outwit);
+//        iv.setImageResource(R.drawable.outwit_en);
+        switch(Locale.getDefault().getLanguage()) {
+            case "ja": {
+                //"ar" is the code of the Arabic language
+
+                iv.setImageResource(R.drawable.outwit_jp);
+                break;
+            }
+            case "en": {
+                //"en" is the code of the English language
+
+                iv.setImageResource(R.drawable.outwit_en);
+                break;
+            }
+        }
         setContentView(iv);
     }
 

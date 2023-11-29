@@ -3,6 +3,8 @@ package edu.byuh.cis.cs203.outwit203_preferences.Themes;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import edu.byuh.cis.cs203.outwit203_preferences.R;
+
 /**
  * LightTheme is an implementation of the Theme interface, providing a light color scheme.
  * It defines the appearance of cells, chips, and team-related elements with lighter hues.
@@ -83,8 +85,8 @@ public class LightTheme implements Theme{
      * @return String name of the dark team.
      */
     @Override
-    public String getDarkTeam() {
-        return "Dark Blue";
+    public int getDarkTeam() {
+        return R.string.light_dark;
     }
     /**
      * Returns the name of the light team.
@@ -92,8 +94,8 @@ public class LightTheme implements Theme{
      * @return String name of the light team.
      */
     @Override
-    public String getLightTeam() {
-        return "Light Green";
+    public int getLightTeam() {
+        return R.string.light_light;
     }
     /**
      * Returns the picture ID for the dark team.

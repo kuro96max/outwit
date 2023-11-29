@@ -78,8 +78,8 @@ public class SpecialTheme implements Theme{
      * @return String name of the dark team.
      */
     @Override
-    public String getDarkTeam() {
-        return "Villain";
+    public int getDarkTeam() {
+        return R.string.special_dark;
     }
     /**
      * Returns the name of the light team.
@@ -87,8 +87,8 @@ public class SpecialTheme implements Theme{
      * @return String name of the light team.
      */
     @Override
-    public String getLightTeam() {
-        return "Hero";
+    public int getLightTeam() {
+        return R.string.special_light;
     }
     /**
      * Returns the picture ID for the dark team.

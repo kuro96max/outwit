@@ -1,0 +1,87 @@
+
+<resources>
+    <string name="app_name">アウトウィット 203 - 設定</string>
+    <string name="title_activity_prefs">設定</string>
+
+    <!-- Prefs Music Settings -->
+    <string name="music_title">バックグランド音楽設定</string>
+    <string name="music_summary_on">バックグランド音楽　あり</string>
+    <string name="music_summary_off">バックグランド音楽　なし</string>
+
+    <!-- Prefs Animation Settings -->
+    <string name="animation_title">チップの動きの設定</string>
+    <string name="animation_summary_on">アニメーション　あり</string>
+    <string name="animation_summary_off">アニメーション　なし</string>
+
+    <!-- Prefs First_Player Settings -->
+    <string name="first_player_title">最初のチップの設定</string>
+    <string name="first_player_summary">最初のプレーヤーは？</string>
+    <string name="first_player_dark">常にダークチップからスタート</string>
+    <string name="first_player_light">常にライトチップからスタート</string>
+    <string name="first_player_random">ランダム</string>
+
+    <!-- Prefs Speed Settings -->
+    <string name="speed_title">チップスピードの設定</string>
+    <string name="speed_summary">どの速さでチップを動かす？</string>
+    <string name="speed_fast">速い</string>
+    <string name="speed_medium">普通</string>
+    <string name="speed_slow">遅い</string>
+
+    <!-- Prefs Chipset Settings -->
+    <string name="chipset_title">使用するチップの設定</string>
+    <string name="chipset_summary">どのチップを使う?</string>
+    <string name="chipset_standard">普通</string>
+    <string name="chipset_power">全てパワーチップ</string>
+    <string name="chipset_regular">全てノーマルチップ</string>
+
+    <!-- Prefs Chiplayout Settings -->
+    <string name="chiplayout_title">チップのレイアウト設定</string>
+    <string name="chiplayout_summary">どのレイアウトを使う?</string>
+    <string name="chiplayout_standard">ノーマル</string>
+    <string name="chiplayout_center">中心寄り</string>
+    <string name="chiplayout_random">ランダム</string>
+
+    <!-- Prefs Theme Settings -->
+    <string name="theme_title">テーマの設定</string>
+    <string name="theme_summary">どのテーマを使う？?</string>
+    <string name="theme_classic">ノーマル</string>
+    <string name="theme_dark">ダーク</string>
+    <string name="theme_light">ライト</string>
+    <string name="theme_special">スペシャル</string>
+
+    <!-- Prefs computer Settings -->
+    <string name="computer_title">プレイヤー設定</string>
+    <string name="computer_summary">一人プレイ　or 二人プレイ</string>
+    <string name="computer_no">二人プレイ</string>
+    <string name="computer_dark">AI対戦（AIはダークチップ）</string>
+    <string name="computer_light">AI対戦（AIはライトチップ）</string>
+
+    <!-- Team Names of Theme -->
+    <string name="classic_dark">ダークブラウンチームのターン</string>
+    <string name="classic_light">ライトブラウンチームのターン</string>
+    <string name="dark_dark">ブルーチームのターン</string>
+    <string name="dark_light">ピンクチームのターン</string>
+    <string name="light_dark">ブルーチームのターン</string>
+    <string name="light_light">グリーンチームのターン</string>
+    <string name="special_dark">ヴィランチームのターン</string>
+    <string name="special_light">ヒーローチームのターン</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="vict_message">ゲームオーバー</string>
+    <string name="vict_win">勝ち！</string>
+    <string name="vict_again">もう一度プレイする？</string>
+    <string name="vict_quit">やめる</string>
+</resources>

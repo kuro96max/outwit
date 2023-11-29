@@ -44,13 +44,13 @@ public interface Theme {
      *
      * @return String representing the name of the dark team.
      */
-    String getDarkTeam();
+    int getDarkTeam();
     /**
      * Gets the name of the light team.
      *
      * @return String representing the name of the light team.
      */
-    String getLightTeam();
+    int getLightTeam();
     /**
      * Gets the picture ID for the dark team.
      *

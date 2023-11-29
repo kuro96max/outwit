@@ -3,6 +3,8 @@ package edu.byuh.cis.cs203.outwit203_preferences.Themes;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import edu.byuh.cis.cs203.outwit203_preferences.R;
+
 /**
  * ClassicTheme is an implementation of the Theme interface, providing a classic color scheme.
  * It defines the appearance of cells, chips, and team-related elements with lighter hues.
@@ -84,8 +86,8 @@ public class ClassicTheme implements Theme {
      * @return String name of the dark team.
      */
     @Override
-    public String getDarkTeam() {
-        return "Dark Brown";
+    public int getDarkTeam() {
+        return R.string.classic_dark;
     }
     /**
      * Returns the name of the light team.
@@ -93,8 +95,8 @@ public class ClassicTheme implements Theme {
      * @return String name of the light team.
      */
     @Override
-    public String getLightTeam() {
-        return "Light Brown";
+    public int getLightTeam() {
+        return R.string.classic_light;
     }
     /**
      * Returns the picture ID for the dark team.

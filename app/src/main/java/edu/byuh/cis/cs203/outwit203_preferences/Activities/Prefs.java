@@ -166,25 +166,25 @@ public class Prefs extends AppCompatActivity {
 
             //add preference widgets here
             var music = new SwitchPreference(context);
-            music.setTitle("Background Music");
-            music.setSummaryOn("Music will play");
-            music.setSummaryOff("Music will not play");
+            music.setTitle(R.string.music_title);
+            music.setSummaryOn(getString(R.string.music_summary_on));
+            music.setSummaryOff(getString(R.string.music_summary_off));
             music.setDefaultValue(false);
             music.setKey(MUSIC_PREFS_KEY);
             screen.addPreference(music);
 
             var animation = new SwitchPreference(context);
-            animation.setTitle("Animated Chip Movements");
-            animation.setSummaryOn("Chips will slide smoothly from one square to another");
-            animation.setSummaryOff("Chips will teleport from one square to another");
+            animation.setTitle(getString(R.string.animation_title));
+            animation.setSummaryOn(getString(R.string.animation_summary_on));
+            animation.setSummaryOff(R.string.animation_summary_off);
             animation.setKey(ANIMATION_PREFS_KEY);
             animation.setDefaultValue(true);
             screen.addPreference(animation);
 
             var whosOnFirst = new ListPreference(context);
-            whosOnFirst.setTitle("Starting player");
-            whosOnFirst.setSummary("Which player goes first?");
-            String[] entries = {"Dark always goes first", "Light always goes first", "Random"};
+            whosOnFirst.setTitle(getString(R.string.first_player_title));
+            whosOnFirst.setSummary(getString(R.string.first_player_summary));
+            String[] entries = {getString(R.string.first_player_dark), getString(R.string.first_player_light), getString(R.string.first_player_random)};
             String[] values = {""+DARK_FIRST, ""+LIGHT_FIRST, ""+RANDOM_FIRST};
             whosOnFirst.setEntries(entries);
             whosOnFirst.setEntryValues(values);
@@ -193,9 +193,9 @@ public class Prefs extends AppCompatActivity {
             screen.addPreference(whosOnFirst);
 
             var speed = new ListPreference(context);
-            speed.setTitle("Animation Speed");
-            speed.setSummary("How fast will the chips move?");
-            entries = new String[]{"Fast", "Medium", "Slow"};
+            speed.setTitle(getString(R.string.speed_title));
+            speed.setSummary(getString(R.string.speed_summary));
+            entries = new String[]{getString(R.string.speed_fast), getString(R.string.speed_medium), getString(R.string.speed_slow)};
             values = new String[]{"10", "50", "100"};
             speed.setEntries(entries);
             speed.setEntryValues(values);
@@ -204,9 +204,9 @@ public class Prefs extends AppCompatActivity {
             screen.addPreference(speed);
 
             var chipset = new ListPreference(context);
-            chipset.setTitle("Chip Set");
-            chipset.setSummary("What kinds of chips to use?");
-            entries = new String[]{"Standard", "All power chips", "All regular chips"};
+            chipset.setTitle(getString(R.string.chipset_title));
+            chipset.setSummary(getString(R.string.chipset_summary));
+            entries = new String[]{getString(R.string.chipset_standard), getString(R.string.chipset_power), getString(R.string.chipset_regular)};
             values = new String[]{""+STANDARD_CHIPSET, ""+ALL_POWER, ""+ALL_REGULAR};
             chipset.setEntries(entries);
             chipset.setEntryValues(values);
@@ -215,9 +215,9 @@ public class Prefs extends AppCompatActivity {
             screen.addPreference(chipset);
 
             var chiplayout = new ListPreference(context);
-            chiplayout.setTitle("Chip Layout");
-            chiplayout.setSummary("How are chips arranged on the board?");
-            entries = new String[]{"Standard", "Centralized", "Randomized"};
+            chiplayout.setTitle(getString(R.string.chiplayout_title));
+            chiplayout.setSummary(getString(R.string.chiplayout_summary));
+            entries = new String[]{getString(R.string.chiplayout_standard), getString(R.string.chiplayout_center), getString(R.string.chiplayout_random)};
             values = new String[]{""+STANDARD_LAYOUT, ""+CENTRALIZED_LAYOUT, ""+RANDOMIZED_LAYOUT};
             chiplayout.setEntries(entries);
             chiplayout.setEntryValues(values);
@@ -226,9 +226,9 @@ public class Prefs extends AppCompatActivity {
             screen.addPreference(chiplayout);
 
             var theme = new ListPreference(context);
-            theme.setTitle("Select Theme");
-            theme.setSummary("What theme do you want to use?");
-            entries = new String[]{"Classic", "Dark", "Light", "Special"};
+            theme.setTitle(getString(R.string.theme_title));
+            theme.setSummary(getString(R.string.theme_summary));
+            entries = new String[]{getString(R.string.theme_classic), getString(R.string.theme_dark), getString(R.string.theme_light), getString(R.string.theme_special)};
             values = new String[]{""+CLASSIC_THEME, ""+DARK_THEME, ""+LIGHT_THEME, ""+SPECIAL_THEME};
             theme.setEntries(entries);
             theme.setEntryValues(values);
@@ -237,9 +237,9 @@ public class Prefs extends AppCompatActivity {
             screen.addPreference(theme);
 
             var ai = new ListPreference(context);
-            ai.setTitle("Who is playing");
-            ai.setSummary("One or Two Player?");
-            entries = new String[]{"Two Human Player", "Human(Dark) vs AI(Light)", "AI(Dark) vs Human(Light)"};
+            ai.setTitle(getString(R.string.computer_title));
+            ai.setSummary(getString(R.string.computer_summary));
+            entries = new String[]{getString(R.string.computer_no), getString(R.string.computer_light), getString(R.string.computer_dark)};
             values = new String[]{ ""+TWO_PLAYER, ""+AI_LIGHT, ""+AI_DARK};
             ai.setEntries(entries);
             ai.setEntryValues(values);

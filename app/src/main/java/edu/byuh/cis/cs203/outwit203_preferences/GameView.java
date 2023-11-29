@@ -219,10 +219,9 @@ public class GameView extends View {
         //draw the "current player" text
         String reminder;
         if (currentPlayer == Team.LIGHT) {
-            reminder = "Team " + theme.getLightTeam() + "'s Turn";
-//            reminder = "Light Brown's Turn";
+            reminder = getResources().getString(theme.getLightTeam());
         } else {
-            reminder = "Team " + theme.getDarkTeam() + "'s Turn";
+            reminder = getResources().getString(theme.getDarkTeam());
 //            reminder = "Dark Brown's Turn";
         }
         c.drawText(reminder, cellSize/2, cellSize*11, textFont);
@@ -331,9 +330,9 @@ public class GameView extends View {
         if (lightCount == 9 || darkCount == 9) {
             String winner;
             if (lightCount > darkCount) {
-                winner = "Light Brown";
+                winner = getResources().getString(theme.getLightTeam());
             } else {
-                winner = "Dark Brown";
+                winner = getResources().getString(theme.getDarkTeam());
             }
             showVictoryMessage(winner);
         }
@@ -346,16 +345,16 @@ public class GameView extends View {
     private void showVictoryMessage(String winner) {
         tim.pause();
         AlertDialog.Builder ab = new AlertDialog.Builder((getContext()));
-        ab.setTitle("Game Over!")
-            .setMessage(winner + " wins!")
-            .setPositiveButton("Play again?", new DialogInterface.OnClickListener() {
+        ab.setTitle(getResources().getString(R.string.vict_message))
+            .setMessage(winner + getResources().getString(R.string.vict_win))
+            .setPositiveButton(getResources().getString(R.string.vict_again), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface d, int i) {
                     resetGameboard();
                     tim.resume();
                 }
             })
-            .setNegativeButton("Quit", (d,i) -> ((Activity)getContext()).finish())
+            .setNegativeButton(getResources().getString(R.string.vict_quit), (d,i) -> ((Activity)getContext()).finish())
             .setCancelable(false);
         AlertDialog box = ab.create();
         box.show();
