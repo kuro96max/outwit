@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -36,9 +38,11 @@ public class GameView extends View {
     private RectF undoButton;
     private Bitmap undoIcon;
     private Stack<Move> undoStack;
-    private int currentPlayer;
+    private Team currentPlayer;
     private Paint textFont;
     private Theme theme;
+    private Team computerPlayer = Prefs.aiComp(getContext());
+    Move scoreData;
 
     private class Timer extends Handler {
 
@@ -81,6 +85,28 @@ public class GameView extends View {
                     checkForWinner();
                     break;
                 }
+            }
+            if (currentPlayer == computerPlayer){
+                ArrayList<Move> possibleMoves = new ArrayList<>();
+                for(var chips: chipz){
+                    if(chips.getColor()==computerPlayer){
+                        List<Cell> findMoves = new ArrayList<>();
+                        findMoves.addAll(chips.findPossibleMoves(cellz));
+                        for (var goThrough: findMoves){
+                            possibleMoves.add(new Move(chips.getHostCell(), goThrough));
+                        }
+                    }
+                }
+//                Collections.shuffle(possibleMoves);
+                shuffle(possibleMoves);
+                Move aiMove = possibleMoves.get(0);
+                Chip a = findChipByCell(aiMove.src());
+
+                selected = a;
+                undoStack.push(aiMove);
+                selected.setDestination(aiMove.dest(), Prefs.getAnimationPrefs(getContext()));
+                selected = null;
+                swapPlayers();
             }
             invalidate();
             if (!paused) {
@@ -182,16 +208,8 @@ public class GameView extends View {
             c.drawLine(i*cellSize, 0, i*cellSize, cellSize*10, blackLine);
         }
 
-        //draw the chips
-//        for (Chip ch : chipz) {
-//            ch.draw(c, blackLine);
-//        }
         chipz.forEach(ch -> ch.draw(c, blackLine));
 
-        //draw the highlights
-//        for (Cell lm : legalMoves) {
-//            lm.drawHighlight(c, rojo);
-//        }
         legalMoves.forEach(lm -> lm.drawHighlight(c, rojo));
 
         //draw the undo button
@@ -208,6 +226,13 @@ public class GameView extends View {
 //            reminder = "Dark Brown's Turn";
         }
         c.drawText(reminder, cellSize/2, cellSize*11, textFont);
+//        if (Prefs.aiComp(getContext())==Team.LIGHT){
+//            computerPlayer = Team.LIGHT;
+//        } else if (Prefs.aiComp(getContext())==Team.DARK){
+//            computerPlayer = Team.DARK;
+//        } else {
+//            computerPlayer = null;
+//        }
     }
 
     /**
@@ -456,6 +481,22 @@ public class GameView extends View {
             selected = null;
             swapPlayers();
         }
+
+        if(computerPlayer != Team.NEUTRAL){
+            if (undoStack.isEmpty()) {
+                var toasty = Toast.makeText(getContext(), "No moves to undo!", Toast.LENGTH_LONG);
+                toasty.show();
+            } else {
+                Move move = undoStack.pop();
+                Cell current = move.dest();
+                Cell moveTo = move.src();
+                selected = getChipAt(current);
+                selected.setDestination(moveTo, Prefs.getAnimationPrefs(getContext()));
+                selected.unselect();
+                selected = null;
+                swapPlayers();
+            }
+        }
     }
 
     private Chip getChipAt_original_version(Cell cel) {
@@ -652,4 +693,100 @@ public class GameView extends View {
     private boolean anyMovingChips() {
         return chipz.stream().anyMatch(c -> c.isMoving());
     }
+
+    /**
+     * Finds the chip located at a specified cell.
+     *
+     * @param cell The cell for which to find the corresponding chip.
+     * @return The chip that is located at the given cell. Returns {@code null} if no chip is found at the cell.
+     */
+    private Chip findChipByCell(Cell cell) {
+        for (Chip chip : chipz) {
+            if (chip.getHostCell().equals(cell)) {
+                return chip;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Shuffles the list of moves. The method will repeatedly shuffle the list if the first move in the list
+     * corresponds to a power chip and there are more than 30 moves in the list.
+     *
+     * @param shf The list of moves to be shuffled.
+     */
+    private void shuffle(ArrayList<Move> shf) {
+        // Repeatedly shuffle if specific conditions are met
+        boolean shouldReshuffle = false;
+        do {
+            Collections.shuffle(shf);
+            Move aiMove = shf.get(0);
+            Chip a = findChipByCell(aiMove.src());
+
+            // Check for conditions to reshuffle
+            shouldReshuffle = a.isPowerChip() && shf.size() > 10;
+            if(shf.size()<3){
+                shouldReshuffle =false;
+            }
+
+        } while (shouldReshuffle);
+    }
+
+
+/*
+private void evaluateChips (ArrayList<Move> moveList) {
+    int highestScore = Integer.MIN_VALUE;
+
+    for (Move move : moveList) {
+        Chip movingChip = findChipByCell(move.src());
+        if (movingChip != null) {
+            int score = calculateMoveScore(movingChip, move);
+            if (score > highestScore) {
+                highestScore = score;
+                scoreData =new Move(move.src(),move.dest());
+                // You can also store this move as the best move if needed
+            }
+        }
+    }
+}
+
+    private Chip findChipByCell(Cell cell) {
+        for (Chip chip : chipz) {
+            if (chip.getHostCell().equals(cell)) {
+                return chip;
+            }
+        }
+        return null;
+    }
+
+    private int calculateMoveScore(Chip chip, Move move) {
+        int score = 0;
+        int xDiff = Math.abs(chip.getHostCell().x() - move.dest().x());
+        int yDiff = Math.abs(chip.getHostCell().y() - move.dest().y());
+
+        // Deduct points if it's a power chip (as per your existing logic)
+        if (chip.isPowerChip()) {
+            score -= 1;
+        }
+
+        // Add points based on proximity to the corner
+        score += calculateProximityScore(xDiff, yDiff);
+
+        return score;
+    }
+
+    private int calculateProximityScore(int xDiff, int yDiff) {
+        int proximityScore = 0;
+
+        if (xDiff < 5 || yDiff < 5) {
+            proximityScore += 3;
+        }
+        if (xDiff < 3 || yDiff < 3) {
+            proximityScore += 5;
+        }
+
+        return proximityScore;
+    }
+
+ */
 }

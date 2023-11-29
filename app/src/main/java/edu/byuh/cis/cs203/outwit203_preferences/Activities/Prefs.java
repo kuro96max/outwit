@@ -10,6 +10,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
 
+import edu.byuh.cis.cs203.outwit203_preferences.Team;
 import edu.byuh.cis.cs203.outwit203_preferences.Themes.ClassicTheme;
 import edu.byuh.cis.cs203.outwit203_preferences.R;
 import edu.byuh.cis.cs203.outwit203_preferences.Themes.DarkTheme;
@@ -26,6 +27,7 @@ public class Prefs extends AppCompatActivity {
     public static final String CHIPSET_PREFS_KEY = "CHIPSET_PREFS_KEY";
     public static final String CHIP_LAYOUT_PREFS_KEY = "CHIP_LAYOUT_PREFS_KEY";
     public static final String THEME_LAYOUT_PREFS_KEY = "THEME_LAYOUT_PREFS_KEY";
+    public static final String PLAYER_LAYOUT_PREFS_KEY = "PLAYER_LAYOUT_PREFS_KEY";
 
     public static final int DARK_FIRST = 1;
     public static final int LIGHT_FIRST = 2;
@@ -42,6 +44,9 @@ public class Prefs extends AppCompatActivity {
     public static final int DARK_THEME = 2;
     public static final int LIGHT_THEME = 3;
     public static final int SPECIAL_THEME = 4;
+    public static final int TWO_PLAYER = 1;
+    public static final int AI_LIGHT = 2;
+    public static final int AI_DARK = 3;
 
 
     /**
@@ -135,6 +140,19 @@ public class Prefs extends AppCompatActivity {
             default -> new ClassicTheme();
         };
     }
+    /**
+     * Helper "façade" method to simplify access to Android's obtuse Preferences API
+     * @param c a context object, typically the main activity
+     * @return , Team.LIGHT, Team.Dark, Team.NEUTRAL
+     */
+    public static Team aiComp(Context c) {
+        String tmp = PreferenceManager.getDefaultSharedPreferences(c).getString(PLAYER_LAYOUT_PREFS_KEY, ""+TWO_PLAYER);
+        return switch (tmp){
+            case ""+AI_LIGHT -> Team.LIGHT;
+            case ""+AI_DARK -> Team.DARK;
+            default -> Team.NEUTRAL;
+        };
+    }
 
     /**
      * Auto-generated static nested class.
@@ -217,6 +235,17 @@ public class Prefs extends AppCompatActivity {
             theme.setDefaultValue(""+CLASSIC_THEME);
             theme.setKey(THEME_LAYOUT_PREFS_KEY);
             screen.addPreference(theme);
+
+            var ai = new ListPreference(context);
+            ai.setTitle("Who is playing");
+            ai.setSummary("One or Two Player?");
+            entries = new String[]{"Two Human Player", "Human(Dark) vs AI(Light)", "AI(Dark) vs Human(Light)"};
+            values = new String[]{ ""+TWO_PLAYER, ""+AI_LIGHT, ""+AI_DARK};
+            ai.setEntries(entries);
+            ai.setEntryValues(values);
+            ai.setDefaultValue(""+TWO_PLAYER);
+            ai.setKey(PLAYER_LAYOUT_PREFS_KEY);
+            screen.addPreference(ai);
 
             setPreferenceScreen(screen);
         }

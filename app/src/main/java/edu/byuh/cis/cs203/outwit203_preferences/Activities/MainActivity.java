@@ -2,6 +2,7 @@ package edu.byuh.cis.cs203.outwit203_preferences.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private GameView gv;
     private MediaPlayer soundtrack;
+    private SplashActivity sv;
 
     /**
      * The onCreate method is one of the first methods that gets called
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public  void onBackPressed(){
         super.onBackPressed();
+        Intent intent = new Intent(this, SplashActivity.class);
+        startActivity(intent);
     }
 
     /**

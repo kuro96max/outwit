@@ -17,7 +17,7 @@ import edu.byuh.cis.cs203.outwit203_preferences.Themes.Theme;
 
 public class Chip {
 
-    private int color;
+    private Team color;
     private boolean power;
     private RectF currentLocation;
     private Cell currentCell;
@@ -46,7 +46,7 @@ public class Chip {
      * @param t the team (light or dark) that the chip belongs to
      * @param p true if a power chip, false if normal
      */
-    private Chip(int t, boolean p, Context c) {
+    private Chip(Team t, boolean p, Context c) {
         color = t;
         power = p;
         currentLocation = new RectF();
@@ -68,7 +68,7 @@ public class Chip {
      * @param t the chip's color, light or dark
      * @return a new normal chip
      */
-    public static Chip normal(int t, Context c) {
+    public static Chip normal(Team t, Context c) {
         return new Chip(t, false, c);
     }
 
@@ -77,7 +77,7 @@ public class Chip {
      * @param t the chip's color, light or dark
      * @return a new power chip
      */
-    public static Chip power(int t, Context c) {
+    public static Chip power(Team t, Context c) {
         return new Chip(t, true, c);
     }
 
@@ -191,7 +191,7 @@ public class Chip {
      * Basic getter method for the chip's color (light or dark)
      * @return the color
      */
-    public int getColor() {
+    public Team getColor() {
         return color;
     }
 

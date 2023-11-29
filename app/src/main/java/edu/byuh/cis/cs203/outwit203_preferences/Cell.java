@@ -9,7 +9,7 @@ import android.graphics.RectF;
 public class Cell {
     private int x;
     private int y;
-    private int cellColor;
+    private Team cellColor;
     private boolean occupied;
     private RectF geometry;
 
@@ -20,7 +20,7 @@ public class Cell {
      * @param t the color: dark, light, or neutral
      * @param cellSize the size of the cell, in pixels
      */
-    public Cell(int xx, int yy, int t, float cellSize) {
+    public Cell(int xx, int yy, Team t, float cellSize) {
         x = xx;
         y = yy;
         occupied = false;
@@ -48,7 +48,7 @@ public class Cell {
      * Basic getter for the cell color
      * @return the color code of the cell: light, dark, or neutral
      */
-    public int color() {
+    public Team color() {
         return cellColor;
     }
 
