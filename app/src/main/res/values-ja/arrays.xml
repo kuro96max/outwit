@@ -1,46 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Prefs First_Player Settings -->
     <string-array name="first_player_options">
-        <item>Dark always goes first</item>
-        <item>Light always goes first</item>
-        <item>Random</item>
+        <item>常にダークチップからスタート</item>
+        <item>常にライトチップからスタート</item>
+        <item>ランダム</item>
     </string-array>
 
     <!-- Prefs Speed Settings -->
     <string-array name="speed_options">
-        <item>Fast</item>
-        <item>Medium</item>
-        <item>Slow</item>
+        <item>速い</item>
+        <item>普通</item>
+        <item>遅い</item>
     </string-array>
 
     <!-- Prefs Chipset Settings -->
     <string-array name="chipset_options">
-        <item>Standard</item>
-        <item>All Power Chips</item>
-        <item>All Regular Chips</item>
+        <item>スタンダード</item>
+        <item>全てパワーチップ</item>
+        <item>全てノーマルチップ</item>
     </string-array>
 
     <!-- Prefs Chiplayout Settings -->
     <string-array name="chiplayout_options">
-        <item>Standard</item>
-        <item>Centralized</item>
-        <item>Randomized</item>
+        <item>ノーマル</item>
+        <item>中心寄り</item>
+        <item>ランダム</item>
     </string-array>
 
     <!-- Prefs Theme Settings -->
     <string-array name="theme_options">
-        <item>Classic</item>
-        <item>Dark</item>
-        <item>Light</item>
-        <item>Special</item>
+        <item>クラッシック</item>
+        <item>ダーク</item>
+        <item>ライト</item>
+        <item>スペシャル</item>
     </string-array>
 
     <!-- Prefs computer Settings -->
     <string-array name="computer_options">
-        <item>Two Human Player</item>
-        <item>AI(Dark) vs Human(Light)</item>
-        <item>Human(Dark) vs AI(Light)</item>
+        <item>二人プレイ</item>
+        <item>AI対戦（AI - ダークチップ）</item>
+        <item>AI対戦（AI - ライトチップ）</item>
     </string-array>
 
     <!-- Reply Preference -->

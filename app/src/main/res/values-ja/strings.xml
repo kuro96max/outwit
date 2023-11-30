@@ -1,6 +1,6 @@
 
 <resources>
-    <string name="app_name">アウトウィット 203 - 設定</string>
+    <string name="app_name">アウトウィット 203</string>
     <string name="title_activity_prefs">設定</string>
 
     <!-- Prefs Music Settings -->
@@ -16,45 +16,26 @@
     <!-- Prefs First_Player Settings -->
     <string name="first_player_title">最初のチップの設定</string>
     <string name="first_player_summary">最初のプレーヤーは？</string>
-    <string name="first_player_dark">常にダークチップからスタート</string>
-    <string name="first_player_light">常にライトチップからスタート</string>
-    <string name="first_player_random">ランダム</string>
 
     <!-- Prefs Speed Settings -->
     <string name="speed_title">チップスピードの設定</string>
     <string name="speed_summary">どの速さでチップを動かす？</string>
-    <string name="speed_fast">速い</string>
-    <string name="speed_medium">普通</string>
-    <string name="speed_slow">遅い</string>
 
     <!-- Prefs Chipset Settings -->
     <string name="chipset_title">使用するチップの設定</string>
     <string name="chipset_summary">どのチップを使う?</string>
-    <string name="chipset_standard">普通</string>
-    <string name="chipset_power">全てパワーチップ</string>
-    <string name="chipset_regular">全てノーマルチップ</string>
 
     <!-- Prefs Chiplayout Settings -->
     <string name="chiplayout_title">チップのレイアウト設定</string>
     <string name="chiplayout_summary">どのレイアウトを使う?</string>
-    <string name="chiplayout_standard">ノーマル</string>
-    <string name="chiplayout_center">中心寄り</string>
-    <string name="chiplayout_random">ランダム</string>
 
     <!-- Prefs Theme Settings -->
     <string name="theme_title">テーマの設定</string>
     <string name="theme_summary">どのテーマを使う？?</string>
-    <string name="theme_classic">ノーマル</string>
-    <string name="theme_dark">ダーク</string>
-    <string name="theme_light">ライト</string>
-    <string name="theme_special">スペシャル</string>
 
     <!-- Prefs computer Settings -->
     <string name="computer_title">プレイヤー設定</string>
     <string name="computer_summary">一人プレイ　or 二人プレイ</string>
-    <string name="computer_no">二人プレイ</string>
-    <string name="computer_dark">AI対戦（AIはダークチップ）</string>
-    <string name="computer_light">AI対戦（AIはライトチップ）</string>
 
     <!-- Team Names of Theme -->
     <string name="classic_dark">ダークブラウンチームのターン</string>

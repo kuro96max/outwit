@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Outwit 203 - Preferences</string>
+    <string name="app_name">Outwit 203</string>
     <string name="title_activity_prefs">Prefs</string>
 
     <!-- Prefs Music Settings -->
@@ -15,45 +15,26 @@
     <!-- Prefs First_Player Settings -->
     <string name="first_player_title">Starting player</string>
     <string name="first_player_summary">Which player goes first?</string>
-    <string name="first_player_dark">Dark always goes first</string>
-    <string name="first_player_light">Light always goes first</string>
-    <string name="first_player_random">Random</string>
 
     <!-- Prefs Speed Settings -->
     <string name="speed_title">Animation Speed</string>
     <string name="speed_summary">How fast will the chips move?</string>
-    <string name="speed_fast">Fast</string>
-    <string name="speed_medium">Medium</string>
-    <string name="speed_slow">Slow</string>
 
     <!-- Prefs Chipset Settings -->
     <string name="chipset_title">Chip Set</string>
     <string name="chipset_summary">What kinds of chips to use?</string>
-    <string name="chipset_standard">Standard</string>
-    <string name="chipset_power">All Power Chips</string>
-    <string name="chipset_regular">All Regular Chips</string>
 
     <!-- Prefs Chiplayout Settings -->
     <string name="chiplayout_title">Chip Set</string>
     <string name="chiplayout_summary">What kinds of chips to use?</string>
-    <string name="chiplayout_standard">Standard</string>
-    <string name="chiplayout_center">Centralized</string>
-    <string name="chiplayout_random">Randomized</string>
 
     <!-- Prefs Theme Settings -->
     <string name="theme_title">Select Theme</string>
     <string name="theme_summary">What theme do you want to use?</string>
-    <string name="theme_classic">Classic</string>
-    <string name="theme_dark">Dark</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_special">Special</string>
 
     <!-- Prefs computer Settings -->
     <string name="computer_title">Who is playing?</string>
     <string name="computer_summary">One or Two player?</string>
-    <string name="computer_no">Two Human Player</string>
-    <string name="computer_dark">AI(Dark) vs Human(Light)</string>
-    <string name="computer_light">Human(Dark) vs AI(Light)</string>
 
     <!-- Team Names of Theme -->
     <string name="classic_dark">Team Dark Brown\'s Turn</string>
